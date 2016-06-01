@@ -45,3 +45,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+XYZReader/build/generated/mockable-android-22.jar
+XYZReader/gradlew
+XYZReader/gradlew.bat
+
+XYZReader/build/*
+XYZReader/gradle/*
