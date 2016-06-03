@@ -51,3 +51,5 @@ XYZReader/gradlew.bat
 
 XYZReader/build/*
 XYZReader/gradle/*
+XYZReader/app/app.iml
+XYZReader/app/app.iml
