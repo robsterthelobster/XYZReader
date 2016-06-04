@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -111,7 +112,7 @@ public class ArticleDetailFragment extends Fragment implements
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
-        FloatingActionButton myFab = (FloatingActionButton)  mRootView.findViewById(R.id.share_fab);
+        final FloatingActionButton myFab = (FloatingActionButton)  mRootView.findViewById(R.id.share_fab);
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
@@ -121,6 +122,20 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ((ScrollView) mRootView.findViewById(R.id.scrollview)).setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    int dy = scrollY - oldScrollY;
+                    if (dy > 0)
+                        myFab.hide();
+                    else if (dy < 0)
+                        myFab.show();
+                }
+            });
+        }
+
+        // show button initially
         bindViews();
         updateStatusBar();
         return mRootView;
