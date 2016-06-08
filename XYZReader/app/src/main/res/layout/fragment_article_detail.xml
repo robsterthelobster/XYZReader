@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/detail_photo_height"
         android:scaleType="centerCrop"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:transitionName="@string/transistion_name"/>
 
     <View
         android:layout_width="match_parent"
